@@ -59,4 +59,12 @@ public class HelloTests {
 		List<User> users = service.getAll();
 		System.out.println(users.toString());
 	}
+    
+    @Test
+	public void testUpdate() throws Exception {
+		User user = service.getUserById(3l);
+		System.out.println(user.toString());
+		user.setNickName("neo");
+		service.update(user);
+	}
 }
