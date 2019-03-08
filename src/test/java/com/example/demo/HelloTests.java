@@ -21,7 +21,7 @@ import com.example.demo.domain.User;
 import com.example.demo.enums.UserSex;
 import com.example.demo.service.UserService;
 import com.example.demo.web.HelloWorldController;
-
+import com.example.demo.service.MailService;
 import junit.framework.Assert;
 
 @RunWith(SpringRunner.class)
@@ -33,6 +33,13 @@ public class HelloTests {
     @Autowired
     private UserService service;
 
+    @Autowired
+    private MailService MailService;
+
+    @Test
+    public void testSimpleMail() throws Exception {
+        MailService.sendSimpleMail("wangcf930412@163.com","test simple mail"," hello this is simple mail");
+    }
     @Before
     public void setUp() throws Exception {
         mvc = MockMvcBuilders.standaloneSetup(new HelloWorldController()).build();
